@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+mongoose.set('useCreateIndex', true);
 const productSchema = new mongoose.Schema({
   name: String,
   price: Number,
@@ -13,6 +14,12 @@ const categorySchema = new mongoose.Schema({
 // Define the schema
 const menuSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
+  id_user: {
+    type: String,
+    ref: 'User',
+    required: true,
+    sparse: true,
+  },
   title: String,
   contact: {
     email: String,
@@ -24,7 +31,5 @@ const menuSchema = new mongoose.Schema({
     color: String
   }
 });
-
-
 
 export default mongoose.model('Menu', menuSchema);
