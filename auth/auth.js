@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const checkAuth = (req, res, next) => {
+const checkAuth = async (req, res, next) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
     return res.status(401).json({ message: 'No token provided' });
@@ -18,9 +18,10 @@ const checkAuth = (req, res, next) => {
   });
 };
 
+export default checkAuth;
+
+
 // Use this middleware in your routes to protect them.
 /* app.get('/protected', checkAuth, (req, res) => {
   res.json({ message: 'This is a protected route' });
 }); */
-
-export default checkAuth;

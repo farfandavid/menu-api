@@ -1,14 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-/* const menusUser = new mongoose.Schema({
-  menu: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Menu',
-    unique: true
-  }
-}); */
-
 const userSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   username: {
@@ -24,8 +16,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true,
     required: true
-  }/* ,
-  menusUser: [menusUser] */
+  }
 },
   {
     timestamps: true
